@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina Instagram - Vender do ZERO | Prospera Rio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-principal: #092040;
+            --azul-secundaria: #00B7D7;
+            --amarelo: #ECC203;
+            --cinza-neutro: #EFF1F3;
+            --azul-escuro: #021738;
+            --branco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--cinza-neutro);
+            color: var(--azul-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: var(--azul-principal);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 194, 3, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .location-text {
+            color: var(--amarelo);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 20pt;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--branco);
+            margin: 1rem 0;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: var(--azul-secundaria);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        .header .tag {
+            display: inline-block;
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .nav {
+            background: var(--azul-escuro);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: var(--branco);
+            border: 2px solid var(--azul-secundaria);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--azul-secundaria);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 183, 215, 0.3);
+        }
+
+        .nav-btn.active {
+            background: var(--amarelo);
+            border-color: var(--amarelo);
+            color: var(--azul-escuro);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--azul-principal);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--amarelo);
+            border-radius: 2px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--azul-secundaria);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-number {
+            width: 50px;
+            height: 50px;
+            background: var(--amarelo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--azul-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--azul-principal);
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--azul-escuro);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--azul-secundaria);
+            font-size: 1.2rem;
+        }
+
+        .ai-tool {
+            background: var(--branco);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--amarelo);
+        }
+
+        .ai-tool-header {
+            background: var(--azul-principal);
+            color: var(--branco);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-tool-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-tool-header p {
+            color: var(--azul-secundaria);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cinza-neutro);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--azul-secundaria);
+            box-shadow: 0 0 0 3px rgba(0, 183, 215, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--azul-secundaria);
+            color: var(--branco);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--azul-principal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .prompt-box {
+            background: var(--cinza-neutro);
+            border-left: 4px solid var(--amarelo);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .prompt-box.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .prompt-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--azul-principal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .prompt-content {
+            background: var(--branco);
+            padding: 1.5rem;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            border: 2px solid var(--azul-secundaria);
+        }
+
+        .copy-btn {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--azul-escuro);
+            color: var(--amarelo);
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid var(--azul-secundaria);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .instructions h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--azul-principal);
+            margin-bottom: 0.5rem;
+        }
+
+        .instructions ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.3rem;
+        }
+
+        .checklist {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .checklist-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--cinza-neutro);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: var(--cinza-neutro);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--azul-secundaria);
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: var(--branco);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--amarelo);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--amarelo), #f5d742);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 8px 24px rgba(236, 194, 3, 0.3);
+        }
+
+        .highlight-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--azul-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            line-height: 1.8;
+        }
+
+        .footer {
+            background: var(--azul-principal);
+            color: var(--branco);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .ai-tool {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img class="logo" 
+                 src="https://lh3.googleusercontent.com/d/1x5sNkC9vd7CI78y0xdkWvgoadxPEMcIf=w800" 
+                 alt="Prospera Rio — Logomarca" />
+            <div class="location-text">MARÉ · JACAREZINHO</div>
+        </div>
+        <h1>Aprenda a Vender pelo Instagram do ZERO!</h1>
+        <p class="subtitle">Você vai aprender a vender online sem saber nada de tecnologia</p>
+        <span class="tag">OFICINA GRATUITA</span>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showSection('intro')">Início</button>
+            <button class="nav-btn" onclick="showSection('perfil')">Passo 1: Perfil</button>
+            <button class="nav-btn" onclick="showSection('conteudo')">Passo 2: Conteúdo</button>
+            <button class="nav-btn" onclick="showSection('seguidores')">Passo 3: Seguidores</button>
+            <button class="nav-btn" onclick="showSection('vendas')">Passo 4: Vendas</button>
+            <button class="nav-btn" onclick="showSection('dicas')">Passo 5: Dicas</button>
+            <button class="nav-btn" onclick="showSection('ferramentas')">Ferramentas IA</button>
+            <button class="nav-btn" onclick="showSection('checklist')">Checklist</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Seção Intro -->
+        <section id="intro" class="section active">
+            <h2 class="section-title">Bem-vindo(a)!</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3>Perfil que vende</h3>
+                    <p>Como montar do zero</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3>O que postar</h3>
+                    <p>Conteúdo que atrai clientes</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3>Conquistar seguidores</h3>
+                    <p>De forma natural e orgânica</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h3>Fazer vendas</h3>
+                    <p>Seus primeiros clientes</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">5</div>
+                    <h3>Crescer sempre</h3>
+                    <p>Dicas de ouro</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h2>Por que Instagram?</h2>
+                <p><strong>113 milhões</strong> de brasileiros usam Instagram<br>
+                É <strong>GRÁTIS</strong> para começar<br>
+                É mais <strong>SIMPLES</strong> do que você imagina!</p>
+            </div>
+        </section>
+
+        <!-- Seção Perfil -->
+        <section id="perfil" class="section">
+            <h2 class="section-title">PASSO 1: Monte seu Perfil que VENDE</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Conta Profissional</h3>
+                    <p><strong>Como fazer:</strong></p>
+                    <ul>
+                        <li>Abra o Instagram e vá no seu perfil</li>
+                        <li>Clique nas 3 linhas no canto superior direito</li>
+                        <li>Toque em 'Configurações'</li>
+                        <li>Procure 'Tipo de conta e ferramentas'</li>
+                        <li>Escolha 'Mudar para conta profissional'</li>
+                        <li>Selecione 'Criador' ou 'Empresa'</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Foto de Perfil</h3>
+                    <ul>
+                        <li>Use a logo se tiver</li>
+                        <li>Ou sua foto de rosto</li>
+                        <li>Fundo claro ou branco</li>
+                        <li>Imagem nítida e clara</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Nome e @</h3>
+                    <ul>
+                        <li>Fácil de lembrar</li>
+                        <li>Relacionado ao produto</li>
+                        <li>Sem números complicados</li>
+                        <li>Exemplo: @docesdalucia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h2>A Bio Perfeita em 3 Linhas</h2>
+                <p>
+                    <strong>LINHA 1:</strong> O que você vende<br>
+                    Exemplo: Bolos caseiros e doces artesanais<br><br>
+                    <strong>LINHA 2:</strong> Para quem é<br>
+                    Exemplo: Atendemos Jacarezinho e região<br><br>
+                    <strong>LINHA 3:</strong> Como encomendar<br>
+                    Exemplo: Chama no Direct pra encomendar!
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção Conteúdo -->
+        <section id="conteudo" class="section">
+            <h2 class="section-title">PASSO 2: O que Postar para Atrair Clientes</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3>Mostre o Produto</h3>
+                    <p>Fotos bonitas do que você vende. Use luz natural, fundo limpo.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3>Ensine Algo</h3>
+                    <p>Dicas, receitas, como usar. Pessoas amam aprender!</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3>Bastidores</h3>
+                    <p>Você fazendo, sua história, seu dia a dia. Cria conexão!</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h2>Quando e Quanto Postar?</h2>
+                <p><strong>No Feed:</strong> 3 a 5 vezes por semana<br>
+                <strong>Nos Stories:</strong> TODO DIA (pode ser só 1 story)<br><br>
+                <strong>Melhor Horário:</strong><br>
+                Manhã: 7h às 9h • Almoço: 12h às 14h • Noite: 19h às 21h</p>
+            </div>
+        </section>
+
+        <!-- Seção Seguidores -->
+        <section id="seguidores" class="section">
+            <h2 class="section-title">PASSO 3: Como Conquistar Seus Primeiros Seguidores</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    Peça pros amigos e família seguirem e compartilharem
+                </div>
+                <div class="tip-card">
+                    Coloque o @ do Instagram em todo lugar (cartão, embalagem, WhatsApp)
+                </div>
+                <div class="tip-card">
+                    Comente em perfis do seu nicho (sem vender, só sendo simpático)
+                </div>
+                <div class="tip-card">
+                    Use hashtags locais (#jacarezinho #riodejaneiro)
+                </div>
+                <div class="tip-card">
+                    Responda TODOS os comentários e mensagens (cria vínculo!)
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Vendas -->
+        <section id="vendas" class="section">
+            <h2 class="section-title">PASSO 4: Como Fazer Sua Primeira Venda</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3>Pessoa VÊ</h3>
+                    <p>seu post ou story</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3>GOSTA</h3>
+                    <p>e manda mensagem</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3>Você RESPONDE</h3>
+                    <p>rápido (muito importante!)</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h3>Tira DÚVIDAS</h3>
+                    <p>dela</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">5</div>
+                    <h3>Passa PREÇO</h3>
+                    <p>e forma de pagamento</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">6</div>
+                    <h3>FECHA</h3>
+                    <p>o pedido!</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h2>SEGREDO DE OURO</h2>
+                <h2>O ATENDIMENTO FAZ A DIFERENÇA!</h2>
+                <p>
+                    Responda RÁPIDO (em até 1 hora)<br>
+                    Seja GENTIL sempre<br>
+                    TIRE todas as dúvidas<br>
+                    AGRADEÇA mesmo se não comprar
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção Dicas -->
+        <section id="dicas" class="section">
+            <h2 class="section-title">PASSO 5: Dicas para Crescer Sempre</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">Tire fotos com boa luz (de dia, perto da janela)</div>
+                <div class="tip-card">Conte sua história (as pessoas compram de quem conhecem)</div>
+                <div class="tip-card">Poste depoimentos de clientes satisfeitos</div>
+                <div class="tip-card">Faça promoção só para seguidores do Instagram</div>
+                <div class="tip-card">Mostre o antes e depois do seu produto</div>
+                <div class="tip-card">Crie senso de urgência (últimas unidades!)</div>
+                <div class="tip-card">Peça pra cliente marcar você na foto</div>
+                <div class="tip-card">Responda todos os comentários</div>
+                <div class="tip-card">SEJA VOCÊ MESMO! Autenticidade vende!</div>
+            </div>
+
+            <div class="highlight-box">
+                <h2>Lembre-se sempre:</h2>
+                <p style="font-size: 1.5rem; font-style: italic; font-weight: 700;">
+                    "TODO MUNDO que vende bem hoje COMEÇOU DO ZERO!"
+                </p>
+                <p style="margin-top: 1rem;">
+                    O importante é COMEÇAR. O resto você aprende fazendo!
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção Ferramentas IA -->
+        <section id="ferramentas" class="section">
+            <h2 class="section-title">Ferramentas com Inteligência Artificial</h2>
+            
+            <div class="ai-tool">
+                <div class="ai-tool-header">
+                    <h3>Gerador de Bio Profissional</h3>
+                    <p>Crie sua bio perfeita em 3 linhas usando IA</p>
+                </div>
+
+                <div class="instructions">
+                    <h4>Como usar:</h4>
+                    <ol>
+                        <li>Preencha os campos abaixo</li>
+                        <li>Clique em "Gerar Prompt"</li>
+                        <li>Copie o prompt que aparecer</li>
+                        <li>Cole no ChatGPT, Claude.ai ou qualquer IA</li>
+                        <li>A IA vai criar sua bio profissional!</li>
+                    </ol>
+                </div>
+                
+                <form id="bioForm">
+                    <div class="form-group">
+                        <label>O que você vende?</label>
+                        <input type="text" id="bioProduct" placeholder="Ex: Bolos caseiros, Roupas infantis, Artesanato..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Onde você atende?</label>
+                        <input type="text" id="bioLocation" placeholder="Ex: Jacarezinho, Rio de Janeiro, Todo Brasil..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Como o cliente encomenda?</label>
+                        <select id="bioContact" required>
+                            <option value="">Selecione...</option>
+                            <option value="Direct do Instagram">Direct do Instagram</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Site/Link">Site ou Link na bio</option>
+                            <option value="Telefone">Telefone</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Algo especial sobre você ou seu negócio? (opcional)</label>
+                        <input type="text" id="bioSpecial" placeholder="Ex: Feito com amor, 10 anos de experiência, Entrega rápida...">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Gerar Prompt para IA</button>
+                </form>
+
+                <div id="bioPrompt" class="prompt-box">
+                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT, Claude, etc):</h4>
+                    <div class="prompt-content" id="bioPromptContent"></div>
+                    <button class="copy-btn" onclick="copyPrompt('bioPromptContent')">Copiar Prompt</button>
+                </div>
+            </div>
+
+            <div class="ai-tool">
+                <div class="ai-tool-header">
+                    <h3>Criador de Calendário de Posts</h3>
+                    <p>Planejamento semanal personalizado com IA</p>
+                </div>
+
+                <div class="instructions">
+                    <h4>Como usar:</h4>
+                    <ol>
+                        <li>Preencha as informações do seu negócio</li>
+                        <li>Clique em "Gerar Prompt"</li>
+                        <li>Copie o prompt completo</li>
+                        <li>Cole no ChatGPT, Claude.ai ou qualquer IA</li>
+                        <li>Receba seu calendário semanal com ideias de posts, horários e legendas!</li>
+                    </ol>
+                </div>
+                
+                <form id="calendarForm">
+                    <div class="form-group">
+                        <label>Seu tipo de negócio:</label>
+                        <input type="text" id="calBusiness" placeholder="Ex: Loja de roupas, Confeitaria, Salão de beleza..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Quantos posts por semana você consegue fazer?</label>
+                        <select id="calFrequency" required>
+                            <option value="">Selecione...</option>
+                            <option value="3">3 posts por semana</option>
+                            <option value="5">5 posts por semana (ideal)</option>
+                            <option value="7">1 post por dia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Seu público-alvo:</label>
+                        <input type="text" id="calAudience" placeholder="Ex: Mulheres 25-40 anos, Mães, Jovens..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Algum tema ou promoção especial para incluir? (opcional)</label>
+                        <textarea id="calSpecial" placeholder="Ex: Dia das Mães chegando, Liquidação de inverno, Novos produtos..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Gerar Prompt para IA</button>
+                </form>
+
+                <div id="calendarPrompt" class="prompt-box">
+                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT, Claude, etc):</h4>
+                    <div class="prompt-content" id="calendarPromptContent"></div>
+                    <button class="copy-btn" onclick="copyPrompt('calendarPromptContent')">Copiar Prompt</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Checklist -->
+        <section id="checklist" class="section">
+            <h2 class="section-title">Seu Checklist para HOJE!</h2>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Transformar em conta profissional</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Colocar foto de perfil boa</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Escrever bio em 3 linhas (use a ferramenta IA!)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">Fazer primeiro post no feed</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Postar primeiro story</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Pedir pros amigos seguirem</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Começar a vender!</label>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <h2>PARABÉNS!</h2>
+                <p style="font-size: 1.3rem;">
+                    Você agora tem tudo para começar a vender pelo Instagram!
+                </p>
+                <p style="margin-top: 1rem;">
+                    Coloque em prática HOJE MESMO e compartilhe seus resultados!
+                </p>
+                <p style="margin-top: 2rem; font-size: 1.2rem;">
+                    <strong>Prospera Rio</strong><br>
+                    Junto com você nessa jornada!
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p><strong>Prospera Rio</strong> • Maré • Jacarezinho</p>
+        <p>Empoderando empreendedores locais</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Ferramentas com IA para te ajudar a crescer no Instagram
+        </p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Gerador de Prompt para Bio
+        document.getElementById('bioForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const product = document.getElementById('bioProduct').value;
+            const location = document.getElementById('bioLocation').value;
+            const contact = document.getElementById('bioContact').value;
+            const special = document.getElementById('bioSpecial').value;
+            
+            const prompt = `Você é um especialista em marketing para Instagram, ajudando empreendedores locais.
+
+Crie uma bio PERFEITA para Instagram seguindo EXATAMENTE este formato de 3 linhas:
+
+LINHA 1: Emoji + O que a pessoa vende (máximo 6 palavras)
+LINHA 2: Emoji + Onde atende (máximo 5 palavras)  
+LINHA 3: Emoji + Como encomendar (${contact})
+
+INFORMAÇÕES DO NEGÓCIO:
+- Produto/Serviço: ${product}
+- Localização: ${location}
+${special ? `- Diferencial: ${special}` : ''}
+
+REGRAS IMPORTANTES:
+- Use emojis relevantes e atraentes
+- Seja DIRETO e CLARO
+- Máximo de 3 linhas
+- Linguagem simples e acolhedora
+- Cada linha deve ter no MÁXIMO as palavras indicadas
+- A linha 3 deve indicar claramente como encomendar
+
+Retorne APENAS a bio formatada, sem explicações adicionais.`;
+            
+            document.getElementById('bioPromptContent').textContent = prompt;
+            document.getElementById('bioPrompt').classList.add('show');
+        });
+
+        // Gerador de Prompt para Calendário
+        document.getElementById('calendarForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const business = document.getElementById('calBusiness').value;
+            const frequency = document.getElementById('calFrequency').value;
+            const audience = document.getElementById('calAudience').value;
+            const special = document.getElementById('calSpecial').value;
+            
+            const prompt = `Você é um especialista em marketing para Instagram, ajudando empreendedores locais.
+
+Crie um CALENDÁRIO DE CONTEÚDO para Instagram de 1 semana (Segunda a Domingo) com ${frequency} posts.
+
+INFORMAÇÕES DO NEGÓCIO:
+- Tipo de negócio: ${business}
+- Posts por semana: ${frequency}
+- Público-alvo: ${audience}
+${special ? `- Tema/Promoção especial: ${special}` : ''}
+
+Para cada post do calendário, forneça:
+1. Dia da semana
+2. Tipo de post (Produto, Dica/Tutorial, Bastidores, Depoimento, Promoção, Educativo)
+3. Ideia de conteúdo ESPECÍFICA e prática
+4. Melhor horário para postar (considere: manhã 7-9h, almoço 12-14h, noite 19-21h)
+5. Sugestão de legenda curta (2-3 linhas) com call-to-action
+6. 3-5 hashtags relevantes e locais
+
+FORMATO DE CADA POST:
+━━━━━━━━━━━━━━━━━━━━━
+📅 [DIA DA SEMANA]
+🎯 Tipo: [tipo de post]
+💡 Ideia: [descrição específica e prática do conteúdo]
+⏰ Horário ideal: [horário]
+📝 Legenda sugerida: 
+"[legenda com 2-3 linhas]"
+🔗 Hashtags: [3-5 hashtags]
+━━━━━━━━━━━━━━━━━━━━━
+
+REGRAS IMPORTANTES:
+- Seja SUPER ESPECÍFICO com cada ideia de post
+- Varie os tipos de conteúdo ao longo da semana
+- Use linguagem simples e acolhedora
+- Inclua calls-to-action nas legendas (ex: "Comenta aqui", "Salva esse post", "Chama no Direct")
+- Considere o público-alvo em cada sugestão
+- Use hashtags locais quando possível (#jacarezinho #riodejaneiro #nomebairro)
+- Se houver tema especial, distribua ao longo da semana de forma estratégica
+
+Retorne o calendário completo formatado e pronto para usar.`;
+            
+            document.getElementById('calendarPromptContent').textContent = prompt;
+            document.getElementById('calendarPrompt').classList.add('show');
+        });
+
+        // Função para copiar prompt
+        function copyPrompt(elementId) {
+            const promptText = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                alert('Prompt copiado! Agora cole em qualquer IA (ChatGPT, Claude.ai, etc)');
+            });
+        }
+
+        // Salvar checklist
+        document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+            
+            checkbox.addEventListener('change', (e) => {
+                localStorage.setItem(e.target.id, e.target.checked);
+            });
+        });
+    </script>
+</body>
+</html>
