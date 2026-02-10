@@ -857,7 +857,7 @@
                         <li>Preencha os campos abaixo</li>
                         <li>Clique em "Gerar Prompt"</li>
                         <li>Copie o prompt que aparecer</li>
-                        <li>Cole no ChatGPT, Claude.ai ou qualquer IA</li>
+                        <li>Cole no ChatGPT, Gemini  ou qualquer IA</li>
                         <li>A IA vai criar sua bio profissional!</li>
                     </ol>
                 </div>
@@ -893,7 +893,7 @@
                 </form>
 
                 <div id="bioPrompt" class="prompt-box">
-                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT, Claude, etc):</h4>
+                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT, Gemini , etc):</h4>
                     <div class="prompt-content" id="bioPromptContent"></div>
                     <button class="copy-btn" onclick="copyPrompt('bioPromptContent')">Copiar Prompt</button>
                 </div>
@@ -911,7 +911,7 @@
                         <li>Preencha as informações do seu negócio</li>
                         <li>Clique em "Gerar Prompt"</li>
                         <li>Copie o prompt completo</li>
-                        <li>Cole no ChatGPT, Claude.ai ou qualquer IA</li>
+                        <li>Cole no ChatGPT, Gemini  ou qualquer IA</li>
                         <li>Receba seu calendário semanal com ideias de posts, horários e legendas!</li>
                     </ol>
                 </div>
@@ -946,7 +946,7 @@
                 </form>
 
                 <div id="calendarPrompt" class="prompt-box">
-                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT, Claude, etc):</h4>
+                    <h4>Copie este prompt e cole em qualquer IA (ChatGPT,Gemini, etc):</h4>
                     <div class="prompt-content" id="calendarPromptContent"></div>
                     <button class="copy-btn" onclick="copyPrompt('calendarPromptContent')">Copiar Prompt</button>
                 </div>
@@ -1120,7 +1120,7 @@ Retorne o calendário completo formatado e pronto para usar.`;
         function copyPrompt(elementId) {
             const promptText = document.getElementById(elementId).textContent;
             navigator.clipboard.writeText(promptText).then(() => {
-                alert('Prompt copiado! Agora cole em qualquer IA (ChatGPT, Claude.ai, etc)');
+                alert('Prompt copiado! Agora cole em qualquer IA (ChatGPT, Gemini, etc)');
             });
         }
 
